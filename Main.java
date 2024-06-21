@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 
 public class Main {
+
     private static final int CONSTRUCT = 0;
     private static final int PUT_BAG = 1;
     private static final int PUT_SURPRIZE = 2;
@@ -102,7 +103,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println("Im in main");
         Scanner scanner = new Scanner(System.in);
         // dummy inits
         BagFIFO bagFifo = null;
@@ -167,9 +167,9 @@ public class Main {
                     break;
 
                 case PUT_BAG:
-                    bagType = params[1];
-//                    i++;
-                    switch (typesMap.get(params[1])) {
+                    bagType = params[i];
+                    i++;
+                    switch (typesMap.get(params[i])) {
                         case BAG_FIFO:
                             bag = bagFifo;
                             break;
@@ -205,9 +205,8 @@ public class Main {
                     break;
 
                 case PUT_SURPRIZE:
-                    bagType = params[1];
-//                    bagType = params[i];
-//                    i++;
+                    bagType = params[i];
+                    i++;
                     switch (typesMap.get(params[2])) {
                         case FORTUNE_COOKIE:
                             surprise = createFortuneCookie(params, ++i);

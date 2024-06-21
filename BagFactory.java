@@ -18,9 +18,9 @@ class BagFactory implements IBagFactory {
     @Override
     public IBag makeBag(String type) {
         return switch (type) {
-            case "RANDOM" -> new BagRandom();
-            case "FIFO" -> new BagFIFO();
-            case "LIFO" -> new BagLIFO();
+            case "BagRandom" -> new BagRandom();
+            case "BagFIFO" -> new BagFIFO();
+            case "BagLIFO" -> new BagLIFO();
             default -> throw new IllegalArgumentException("Unsupported bag type: " + type);
         };
     }

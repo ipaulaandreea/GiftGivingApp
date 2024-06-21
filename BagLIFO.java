@@ -7,11 +7,13 @@ class BagLIFO implements IBag {
     LinkedList<ISurprise> bag = new LinkedList<>();
 
     BagLIFO() {
+        System.out.println("LIFO Bag created!");
     }
 
     @Override
     public void put(ISurprise newSurprise) {
         bag.add(newSurprise);
+        System.out.println("Added "+newSurprise.toString()+" to LIFO Bag");
     }
 
     @Override
@@ -19,13 +21,16 @@ class BagLIFO implements IBag {
         while(!bagOfSurprises.isEmpty()){
             bag.add(bagOfSurprises.takeOut());
         }
+        System.out.println("LIFO Bag now contains:");
+        for (ISurprise surprise : bag){
+            System.out.println(surprise.toString());
+        }
 
     }
 
     @Override
     public ISurprise takeOut() {
-        ISurprise removedSurprise = bag.removeLast();
-        return removedSurprise;
+        return bag.removeLast();
 
     }
 

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 class BagRandom implements IBag {
     ArrayList <ISurprise> bag = new ArrayList<>();
     BagRandom() {
+        System.out.println("Random Bag created!");
 
     }
 
@@ -12,12 +13,17 @@ class BagRandom implements IBag {
     @Override
     public void put(ISurprise newSurprise) {
         bag.add(newSurprise);
+        System.out.println("Added "+newSurprise.toString()+" to Random Bag");
     }
 
     @Override
     public void put(IBag bagOfSurprises) {
         while(!bagOfSurprises.isEmpty()){
             bag.add(bagOfSurprises.takeOut());
+        }
+        System.out.println("Random Bag now contains:");
+        for (ISurprise surprise : bag){
+            System.out.println(surprise.toString());
         }
 
     }
